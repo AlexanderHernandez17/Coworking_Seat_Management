@@ -3,7 +3,7 @@ import { Workspace } from 'src/workspaces/entities/workspace.entity';
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 
-@Entity()
+@Entity({name:'rooms'})
 export class Room {
   @PrimaryGeneratedColumn()
   room_id: number;

@@ -2,7 +2,7 @@ import { Booking } from 'src/bookings/entities/booking.entity';
 import { Room } from 'src/rooms/entities/room.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
 
-@Entity()
+@Entity({name:'sessions'})
 export class Session {
   @PrimaryGeneratedColumn()
   session_id: number;
