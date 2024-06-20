@@ -2,7 +2,7 @@ import { IsEmail, IsString } from 'class-validator';
 import { Booking } from 'src/bookings/entities/booking.entity';
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
-@Entity()
+@Entity({name:'users'})
 export class User {
   @PrimaryGeneratedColumn()
   user_id: number;

@@ -5,7 +5,7 @@ import { User } from 'src/users/entities/user.entity';
 import { Workspace } from 'src/workspaces/entities/workspace.entity';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 
-@Entity()
+@Entity({name: 'bookings'})
 export class Booking {
   @PrimaryGeneratedColumn()
   booking_id: number;
