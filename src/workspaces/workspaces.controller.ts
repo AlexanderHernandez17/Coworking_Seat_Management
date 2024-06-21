@@ -1,11 +1,33 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query } from '@nestjs/common';
 import { WorkspacesService } from './workspaces.service';
-import { CreateWorkspaceDto } from './dto/create-workspace.dto';
+import { Workspace } from './entities/workspace.entity';
 import { UpdateWorkspaceDto } from './dto/update-workspace.dto';
+import { CreateWorkspaceDto } from './dto/create-workspace.dto';
 
 @Controller('workspaces')
 export class WorkspacesController {
   constructor(private readonly workspacesService: WorkspacesService) {}
+
+
+  @Get('available/:sessionId')
+  getAvailableWorkspaces(
+    @Param('sessionId', ParseIntPipe) sessionId: number,
+    @Query('page', ParseIntPipe) page = 1,
+    @Query('limit', ParseIntPipe) limit = 10,
+    @Query('order') order: 'ASC' | 'DESC' = 'ASC'
+  ): Promise<Workspace[]> {
+    return this.workspacesService.getAvailableWorkspaces(sessionId, page, limit, order);
+  }
+
+  @Get('occupied/:sessionId')
+  getOccupiedWorkspaces(
+    @Param('sessionId', ParseIntPipe) sessionId: number,
+    @Query('page', ParseIntPipe) page = 1,
+    @Query('limit', ParseIntPipe) limit = 10,
+    @Query('order') order: 'ASC' | 'DESC' = 'ASC'
+  ): Promise<Workspace[]> {
+    return this.workspacesService.getOccupiedWorkspaces(sessionId, page, limit, order);
+  }
 
   @Post()
   create(@Body() createWorkspaceDto: CreateWorkspaceDto) {
