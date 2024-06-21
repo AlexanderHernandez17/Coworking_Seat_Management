@@ -1,73 +1,79 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# README - Gestión de Asientos para Sistema de Coworking - Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Descripción del Proyecto
+Este proyecto implementa una API backend para la gestión de reservas de espacios de trabajo en un sistema de coworking. La API permite a los usuarios ver y reservar espacios de trabajo en sesiones específicas, facilitando la gestión de la ocupación de espacios y mejorando la experiencia de los usuarios.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Historia de Usuario
+Como Product Owner, quiero que los usuarios puedan reservar espacios de trabajo en un coworking para una sesión específica y así facilitar la gestión de ocupación de espacios y mejorar la experiencia de los usuarios.
 
-## Description
+## Instrucciones para Configurar y Ejecutar el Proyecto Localmente
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Requisitos Previos
+- Node.js (v14 o superior)
+- npm (v6 o superior)
+- PostgreSQL
 
-## Installation
+### Pasos para Configuración
 
-```bash
-$ npm install
-```
+1. **Clonar el repositorio:**
+    ```
+    git clone <URL-del-repositorio>
+    cd <nombre-del-repositorio>
+    ```
 
-## Running the app
+2. **Instalar dependencias:**
+    ```
+    npm install
+    ```
 
-```bash
-# development
-$ npm run start
+3. **Configurar la base de datos:**
+    - Crear una base de datos PostgreSQL para el proyecto.
+    - Configurar las variables de entorno en el archivo `.env`:
+    ```
+    DATABASE_HOST=localhost
+    DATABASE_PORT=5432
+    DATABASE_USERNAME=your_db_username
+    DATABASE_PASSWORD=your_db_password
+    DATABASE_NAME=your_db_name
+    ```
 
-# watch mode
-$ npm run start:dev
+4. **Ejecutar migraciones:**
+    ```
+    npm run typeorm migration:run
+    ```
 
-# production mode
-$ npm run start:prod
-```
+5. **Iniciar la aplicación:**
+    ```
+    npm run start:dev
+    ```
 
-## Test
+### Acceso a Swagger
+Una vez que la aplicación esté en funcionamiento, puedes acceder a la documentación de Swagger en la siguiente URL:
 
-```bash
-# unit tests
-$ npm run test
+http://localhost:3000/api
 
-# e2e tests
-$ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
-```
+## Pruebas de la API
+Se ha implementado un conjunto de pruebas funcionales. El video de prueba utilizando Postman está disponible en el siguiente enlace:
+[Link al Video de Prueba](#)
 
-## Support
+## Estructura del Proyecto
+- **src/**: Contiene el código fuente de la aplicación.
+    - **modules/**: Módulos organizados por funcionalidad (users, sessions, workspaces).
+    - **filters/**: Filtros de excepciones personalizados.
+    - **main.ts**: Punto de entrada de la aplicación.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## GitFlow
+Se ha seguido el flujo de trabajo GitFlow para la gestión de ramas y versiones del código.
 
-## Stay in touch
+## Buenas Prácticas
+- Principios de diseño SOLID.
+- Código limpio, mantenible y escalable.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Enlaces de Entregables
+- **Repositorio Backend:** [https://github.com/AlexanderHernandez17/Coworking_Seat_Management.git](#)
+- **Swagger Deployado en la Nube:** [http://localhost:3000/api](#)
+- **Video de Pruebas:** [Link al Video](#)
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+## Contacto
+Si tienes alguna pregunta o necesitas más información, no dudes en contactarme a través del siguiente correo electrónico: [alexander.hdez.2001@gmail.com]

@@ -10,13 +10,13 @@ export class Booking {
   @PrimaryGeneratedColumn()
   booking_id: number;
 
-  @ManyToOne(() => User, user => user.bookings)
+  @ManyToOne(() => User, user => user.bookings,  { eager: true })
   user: User;
 
-  @ManyToOne(() => Workspace, workspace => workspace.bookings)
+  @ManyToOne(() => Workspace, workspace => workspace.bookings,  { eager: true })
   workspace: Workspace;
 
-  @ManyToOne(() => Session, session => session.bookings)
+  @ManyToOne(() => Session, session => session.bookings,  { eager: true })
   session: Session;
 
   @IsDate()

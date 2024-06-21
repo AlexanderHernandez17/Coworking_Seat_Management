@@ -20,7 +20,7 @@ export class SessionsService {
     return this.sessionRepository.createQueryBuilder('session')
       .leftJoinAndSelect('session.workspaces', 'workspace')
       .orderBy('COUNT(workspace.id)', order)
-      .groupBy('session.id')
+      .groupBy('session_id')
       .skip((page - 1) * limit)
       .take(limit)
       .getMany();
